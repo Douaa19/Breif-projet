@@ -1,0 +1,37 @@
+body {
+    background-color: #8686;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+}
+
+main {
+    background-color: #6E69EC;
+}
+
+main {
+    background-color: #6E69EC;
+}
+
+main .container {
+    border: 2px solid;
+}
+
+main .container form {
+    margin: 1em;
+}
+
+main .container form label{
+    margin: 0.5em 1em;
+}
+
+main .container form input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+input[type="button"] {
+    outline: none;
+}
+
+main .container form input[type="button"]{
+    margin: 3em 0;
+}
