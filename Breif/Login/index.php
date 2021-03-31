@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="stylesheet" href="CSS/login.css">
 </head>
 <body>
     <main>
@@ -16,7 +16,7 @@
             <input type="text" name="username" placeholder="Username">
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="Password">
-            <input type="submit" value="Login">
+            <input type="submit" name="login" value="Login">
             </form>
         </div>
     </main>
