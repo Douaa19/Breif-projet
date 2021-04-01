@@ -9,16 +9,23 @@
 </head>
 <body>
     <main>
-        <div class="container">
-            <form action="includes/login.inc.php" method="post">
-            <h1>Login</h1>
-            <label for="username">Username</label>
+        <form action="includes/login.inc.php" method="post" class="container">
+        <h1>Login</h1>
+        <div class="username">
+            <label id="username">Username</label>
             <input type="text" name="username" placeholder="Username">
-            <label for="password">Password</label>
+        </div>
+        <div class="password">
+            <label id="password">Password</label>
             <input type="password" name="password" placeholder="Password">
+<<<<<<< Updated upstream
             <input type="submit" name="login" value="Login">
             </form>
+=======
+>>>>>>> Stashed changes
         </div>
+        <input type="submit" name="login" value="Login">
+        </form>
     </main>
 </body>
 </html>
