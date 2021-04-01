@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.logo{
+    display: flex;
+}
+
+.logo h1{
+    color: #868691;
+}
+.logo>h1>span{
+    color: #6E69EC;
+}
