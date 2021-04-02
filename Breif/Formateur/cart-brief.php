@@ -1,5 +1,5 @@
 <?php
-    include_once('connex.php');
+    include_once('../Database/database.php');
     if (isset($_POST['titre']) && isset($_POST['description']) && isset($_POST['context']) && isset($_POST['dead_line']) && isset($_POST['date_prj']) && isset($_POST['submit'])) {
         $titer = $_POST['titre'];
         $discreption = $_POST['description'];
@@ -43,7 +43,7 @@
             </div>
             <div class="para_noti">
                 <img src="../Conception_Frontend/imag/Notification.png" alt="notifi" class="img1">
-                <img src="../Conception_Frontend/imag/Parametre.png" alt="setting" class="img2">
+                
             </div>
         </div>
 

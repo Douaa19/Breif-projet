@@ -1,7 +1,7 @@
 <?php
 // Include connection
     include_once('../../Database/database.php');
-    
+
 
 // 
     $submit = $_POST['login'];
@@ -15,11 +15,11 @@
             $select = "SELECT * FROM users WHERE username='$username' AND pass_word='$password'";
             $result = mysqli_query($connect, $select);
             if (mysqli_num_rows($result)==1) {
-                $sel_student = "SELECT role FROM users WHERE role='Student'";
-                $result_student = mysqli_query($connect, $sel_student);
-                if ($result_student) {
+                $user = mysqli_fetch_assoc($result);
+                $user_role = $user['role'];
+                if ($user_role == 'Student') {
                     header('Location: ../../Etudiant/index.php');
-                } else {
+                } elseif ($user_role == 'Coach') {
                     header('Location: ../../Formateur/index.php');
                 }
             } else {

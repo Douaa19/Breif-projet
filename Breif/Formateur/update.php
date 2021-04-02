@@ -1,5 +1,5 @@
 <?php
-    include_once('connex.php');
+    include_once('../Database/database.php');
     $selct = "SELECT * FROM projets";
     $query = mysqli_query($connect,$selct);
     if (isset($_GET['id'])) {
@@ -40,7 +40,6 @@
             </div>
             <div class="para_noti">
                 <img src="../Conception_Frontend/imag/Notification.png" alt="notifi" class="img1">
-                <img src="../Conception_Frontend/imag/Parametre.png" alt="setting" class="img2">
             </div>
         </div>
         <?php
@@ -63,7 +62,7 @@
                 <P>date_prj</P>
                 <input type="text" name="livrabl">
 
-                <input type="submit" name="submit" value="update">
+                <input type="submit" name="submit" value="Modifier">
 
             </form>
 

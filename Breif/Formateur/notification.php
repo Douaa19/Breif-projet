@@ -13,10 +13,7 @@
             <div class="logo">
                 <h1><span>You</span>Code</h1>
             </div>
-            <div class="para_noti">
-                <img src="../Conception_Frontend/imag/Notification.png" alt="notifi" class="img1">
-                <img src="../Conception_Frontend/imag/Parametre.png" alt="setting" class="img2">
-            </div>
+            
         </div>
         <div class="notification">
             <div class="form">
