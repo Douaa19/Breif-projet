@@ -10,7 +10,6 @@ if ($sql) {
     echo"ereur";
 }  
 }  
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
