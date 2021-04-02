@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
     include_once('connex.php');
     $select = "SELECT * FROM projets WHERE id_formateur = 1";
@@ -11,10 +12,13 @@
 
 
 
+=======
+>>>>>>> main
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>page formateur</title>
@@ -54,5 +58,12 @@
 
         </div>
     </div>
+=======
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projet</title>
+</head>
+<body>
+<h1> HELLO</h1>
+>>>>>>> main
 </body>
 </html>
