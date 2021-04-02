@@ -2,7 +2,6 @@
 include_once('../Database/database.php');
 if (isset($_POST['gobrief'])) {
 header('location:carte.php');
-
 }
 
 $query = "SELECT * FROM projets WHERE id_formateur = 1";
