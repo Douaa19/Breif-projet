@@ -1,5 +1,5 @@
 <?php
-include_once('conexion.php');
+include_once('../Database/database.php');
 if(!empty($_POST['submit'])){
 $url=$_POST['url'];
 $sql=mysqli_query ($connect,"INSERT INTO `url`( `url`) VALUES  ('$url')") ;
@@ -10,7 +10,6 @@ if ($sql) {
     echo"ereur";
 }  
 }  
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

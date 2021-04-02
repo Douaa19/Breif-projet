@@ -1,5 +1,5 @@
 <?php
-include_once('conexion.php');
+include_once('../Database/database.php');
 if (isset($_POST['gobrief'])) {
 header('location:carte.php');
 
