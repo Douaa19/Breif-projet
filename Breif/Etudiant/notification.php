@@ -1,7 +1,7 @@
 <?php
 include_once('../Database/database.php');
-
-
+$select= "SELECT  ";
+$query=mysqli_query($connect,$select);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +23,11 @@ include_once('../Database/database.php');
                      <a href="parametre.php"> <img src="../Conception_Frontend/imag/Parametre.png" alt="setting" class="img2"></a>
                     </div>
         </div>
+        <?php foreach ( $query as $row) {
+            
+       ?>
         <div class="notif">
-            <h1>titre</h1>
+            <h1><h1>
             <div class="format">
                 <h3>Formateur</h3>
                 <h3>12/09/2021 a 13:14</h3>
@@ -43,6 +46,7 @@ include_once('../Database/database.php');
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, pariatur autem? Nihil fugit veritatis illum, ducimus, porro quidem recusandae dignissimos odio maxime commodi molestiae reprehenderit officiis ipsum est totam beatae!
             </p>
         </div>
+    }
         <div class="footer">
             <p>©</p>
         </div>

@@ -4,10 +4,8 @@ if (isset($_POST['gobrief'])) {
 header('location:carte.php');
 }
 
-$query = "SELECT * FROM projets WHERE id_formateur = 1";
+$query = "SELECT * FROM projets WHERE id_formateur = ";
 $result = mysqli_query($connect,$query);
-
-
 
 ?>
 
@@ -30,7 +28,6 @@ $result = mysqli_query($connect,$query);
             </div>
             <div class="para_noti">
                 <a href="notification.php"><img src="../Conception_Frontend/imag/Notification.png" alt="notifi" class="img1"></a>
-                <img src="../Conception_Frontend/imag/Parametre.png" alt="setting" class="img2">
             </div>
         </div>
         <div class="cartes">
