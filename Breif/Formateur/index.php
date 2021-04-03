@@ -1,11 +1,15 @@
 
 <?php
     include_once('../Database/database.php');
-    $select = "SELECT * FROM projets WHERE id_formateur = 1";
+    session_start();
+    $id_user = $_SESSION['id_user'];
+    $coach_query = "SELECT id_formateur FROM formateurs WHERE id_user = $id_user";
+    $coach_select = mysqli_query($connect,$coach_query);
+    $coach = mysqli_fetch_assoc($coach_select);
+    $coach_id = $coach['id_formateur'];
+    $_SESSION['coach_id'] = $coach_id;
+    $select = "SELECT * FROM projets WHERE id_formateur = $coach_id";
     $result = mysqli_query($connect,$select);
-  
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,11 +38,12 @@
         <div class="cartes">
             <?php
                 foreach ($result as $row) {
+                    $id_projet = $row['id_projet'];
             ?>
                     <div class="carte1">
                         <p><?php echo $row['titre']; ?></p>
                         <p><?php echo $row['date_prj']; ?></p>
-                        <span><a href="update.php" >Modifier</a>/<a href="#">Suprimer</a></span>
+                        <span><a href="update.php?id_projet=<?php echo $id_projet; ?>" >Modifier</a>/<a href="#">Suprimer</a></span>
                      </div>
             <?php
             }
@@ -47,7 +52,6 @@
         </div>
         <div class="footer">
             <p>©</p>
-
         </div>
     </div>
  </body>
