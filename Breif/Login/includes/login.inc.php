@@ -1,6 +1,7 @@
 <?php
 // Include connection
     include_once('../../Database/database.php');
+    session_start();
 
 
 // 
@@ -18,8 +19,10 @@
                 $user = mysqli_fetch_assoc($result);
                 $user_role = $user['role'];
                 if ($user_role == 'Student') {
+                    $_SESSION['id_user'] = $user['id'];
                     header('Location: ../../Etudiant/index.php');
                 } elseif ($user_role == 'Coach') {
+                    $_SESSION['id_user'] = $user['id'];
                     header('Location: ../../Formateur/index.php');
                 }
             } else {

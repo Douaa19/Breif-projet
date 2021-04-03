@@ -1,18 +1,32 @@
 <?php
     include_once('../Database/database.php');
-    $selct = "SELECT * FROM projets";
-    $query = mysqli_query($connect,$selct);
-    if (isset($_GET['id'])) {
-        $id = (int)$_GET['id'];
-        $delete = "DELETE FROM projets WHERE id_projet='$id'";
-        $quer = mysqli_query($connect,$delete);
-        if (!$quer) {
-            echo "eror";
-        }
-        else {
-            header("location:update.php");
+    //$selct = "SELECT * FROM projets";
+    //$query = mysqli_query($connect,$selct);
+
+    if (isset($_POST['submit'])) {
+        $submit = $_POST['submit'];
+        $update = "UPDATE projets SET titre = '$_POST[titre]', Description = '$_POST[description]', context = '$_POST[context]', dead_line = '$_POST[dead_line]', date_prj = '$_POST[date_prj]'";
+        $query = mysqli_query($connect,$update);
+        if (!$query) {
+            echo "error";
         }
     }
+
+
+
+
+
+    // if (isset($_GET['id'])) {
+    //     $id = (int)$_GET['id'];
+    //     $delete = "DELETE FROM projets WHERE id_projet='$id'";
+    //     $quer = mysqli_query($connect,$delete);
+    //     if (!$quer) {
+    //         echo "eror";
+    //     }
+    //     else {
+    //         header("location:update.php");
+    //     }
+    // }
 
 
 ?>
@@ -33,7 +47,7 @@
     <title>Document</title>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <div class="header">
             <div class="logo">
                 <h1><span>You</span>Code</h1>
@@ -42,34 +56,33 @@
                 <img src="../Conception_Frontend/imag/Notification.png" alt="notifi" class="img1">
             </div>
         </div>
-        <?php
-            foreach ($query as $row) :
-        ?>
+            <?php
+                // foreach ($query as $row) :
+            ?>
         <div class="cart">
             <form action="cart-brief.php">
                 <P>Titre</P>
                 <input type="text" name="titre" <?php ?>>
 
                 <P>Description</P>
-                <input type="text" name="discreption">
+                <input type="text" name="description">
 
-                <P>context</P>
-                <input type="text" name="livrabl">
+                <P>Context</P>
+                <input type="text" name="context">
 
-                <P>dead_line</P>
-                <input type="text" name="livrabl">
+                <P>Dead_line</P>
+                <input type="text" name="dead_line">
 
-                <P>date_prj</P>
-                <input type="text" name="livrabl">
+                <P>Date_prj</P>
+                <input type="text" name="date_prj">
 
                 <input type="submit" name="submit" value="Modifier">
 
             </form>
-
         </div>
-        <?php
-            endforeach;
-        ?>
+            <?php
+                // endforeach;
+            ?>
     </div>
 
 </body>

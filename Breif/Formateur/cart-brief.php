@@ -1,12 +1,13 @@
 <?php
     include_once('../Database/database.php');
-    if (isset($_POST['titre']) && isset($_POST['description']) && isset($_POST['context']) && isset($_POST['dead_line']) && isset($_POST['date_prj']) && isset($_POST['submit'])) {
+    session_start();
+    $coach_id = $_SESSION['coach_id'];
+    if (isset($_POST['titre']) && isset($_POST['description']) && isset($_POST['context']) && isset($_POST['dead_line']) && isset($_POST['submit'])) {
         $titer = $_POST['titre'];
         $discreption = $_POST['description'];
         $context = $_POST['context'];
         $dead_line = $_POST['dead_line'];
-        $date_prj = $_POST['date_prj'];
-        $insert = "INSERT INTO projets(titre, description, contexte	, dead_line, date_prj) VALUE ('$titer', '$discreption', '$context', '$dead_line', '$date_prj')";
+        $insert = "INSERT INTO projets(titre, description, contexte	, dead_line, id_formateur) VALUE ('$titer', '$discreption', '$context', '$dead_line', $coach_id)";
         $query = mysqli_query($connect, $insert);
         header("location:index.php");
         if (!$query) {
