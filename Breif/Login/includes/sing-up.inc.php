@@ -2,7 +2,7 @@
 // Connexion base de donnée;
     include_once('../../Database/database.php');
     if (!include_once('../../Database/database.php')) {
-        echo "Includes feild";
+        echo "Include feild";
     }
 
 // Teste des données;
