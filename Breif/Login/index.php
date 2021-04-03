@@ -20,6 +20,7 @@
             <input type="password" name="password" placeholder="Password">
         </div>
         <input type="submit" name="login" value="Login">
+        <a href="sing-up.php">sign up</a>
         </form>
     </main>
 </body>
