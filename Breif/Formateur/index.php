@@ -10,6 +10,25 @@
     $_SESSION['coach_id'] = $coach_id;
     $select = "SELECT * FROM projets WHERE id_formateur = $coach_id";
     $result = mysqli_query($connect,$select);
+
+
+
+
+    if (isset($_GET['id_projet'])) {
+        $id_projet = (int)$_GET['id_projet'];
+        $delete = "DELETE FROM projets WHERE id_projet='$id_projet'";
+        $quer = mysqli_query($connect,$delete);
+        if (!$quer) {
+            echo "eror";
+        }
+        // else {
+        //     header("location:update.php");
+        // }
+    }
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +62,7 @@
                     <div class="carte1">
                         <p><?php echo $row['titre']; ?></p>
                         <p><?php echo $row['date_prj']; ?></p>
-                        <span><a href="update.php?id_projet=<?php echo $id_projet; ?>" >Modifier</a>/<a href="#">Suprimer</a></span>
+                        <span><a href="update.php?id_projet=<?php echo $id_projet; ?>" >Modifier</a>/<a href="index.php?id_projet=<?php echo $id_projet; ?>">Suprimer</a></span>
                      </div>
             <?php
             }
