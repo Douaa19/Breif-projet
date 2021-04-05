@@ -1,14 +1,23 @@
 <?php
     include_once('../Database/database.php');
-    //$selct = "SELECT * FROM projets";
-    //$query = mysqli_query($connect,$selct);
+    session_start();
+    $id_projet = $_GET["id_projet"];
+    $selct = "SELECT * FROM projets WHERE id_projet = $id_projet";
+    $query = mysqli_query($connect,$selct);
+    $feach = mysqli_fetch_assoc($query);
 
+
+    
     if (isset($_POST['submit'])) {
-        $submit = $_POST['submit'];
-        $update = "UPDATE projets SET titre = '$_POST[titre]', Description = '$_POST[description]', context = '$_POST[context]', dead_line = '$_POST[dead_line]', date_prj = '$_POST[date_prj]'";
+        $titre = $_POST["titre"];
+        $description = $_POST["description"];
+        $context = $_POST["context"];
+        $dead_line = $_POST["dead_line"];
+       
+        $update = "UPDATE projets SET titre = '$titre', description = '$description', contexte= '$context', dead_line = '$dead_line' WHERE id_projet = $id_projet";
         $query = mysqli_query($connect,$update);
-        if (!$query) {
-            echo "error";
+        if ($query) {
+            header("location: index.php");
         }
     }
 
@@ -16,9 +25,9 @@
 
 
 
-    // if (isset($_GET['id'])) {
-    //     $id = (int)$_GET['id'];
-    //     $delete = "DELETE FROM projets WHERE id_projet='$id'";
+    // if (isset($_GET['id_projet'])) {
+    //     $id_projet = (int)$_GET['id_projet'];
+    //     $delete = "DELETE FROM projets WHERE id_projet='$id_projet'";
     //     $quer = mysqli_query($connect,$delete);
     //     if (!$quer) {
     //         echo "eror";
@@ -60,21 +69,21 @@
                 // foreach ($query as $row) :
             ?>
         <div class="cart">
-            <form action="cart-brief.php">
+            <form action="update.php?id_projet=<?php echo $id_projet ; ?>" method="post">
                 <P>Titre</P>
-                <input type="text" name="titre" <?php ?>>
+                <input type="text" name="titre" value="<?php echo $feach['titre'] ; ?>">
 
                 <P>Description</P>
-                <input type="text" name="description">
+                <input type="text" name="description" value="<?php echo $feach['description'] ; ?>">
 
                 <P>Context</P>
-                <input type="text" name="context">
+                <input type="text" name="context" value="<?php echo $feach['contexte'] ; ?>">
 
                 <P>Dead_line</P>
-                <input type="text" name="dead_line">
-
+                <input type="text" name="dead_line" value="<?php echo $feach['dead_line'] ; ?>"><br>
+<!-- 
                 <P>Date_prj</P>
-                <input type="text" name="date_prj">
+                <input type="text" name="date_prj"> -->
 
                 <input type="submit" name="submit" value="Modifier">
 

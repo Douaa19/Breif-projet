@@ -14,9 +14,7 @@
             echo "erreur" . mysqli_error($connect);
         }
     }
-    else {
-        echo"you are conntected";
-    }
+
 
 
 
