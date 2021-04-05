@@ -1,7 +1,13 @@
 <?php
 include_once('../Database/database.php');
-
-
+session_start();
+$id_user = (int)$_SESSION['id_user'];
+$select = "SELECT id_etudaint FROM etudaints WHERE id_user = $id_user";
+$query= mysqli_query($connect,$select);
+$etudiant = mysqli_fetch_assoc($query);
+$etudiant_id = (int)$etudiant['id_etudaint'];
+$select2 = "SELECT id_projet,validated FROM validation WHERE id_etudiant = $etudiant_id";
+$query2 = mysqli_query($connect,$select2);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,30 +25,15 @@ include_once('../Database/database.php');
                         <h1 class="you">You </h1>
                         <h1 class="code">Code </h1>
                     </div>
-                    <div class="para_noti">
-                     <a href="parametre.php"> <img src="../Conception_Frontend/imag/Parametre.png" alt="setting" class="img2"></a>
-                    </div>
         </div>
-        <div class="notif">
-            <h1>titre</h1>
-            <div class="format">
-                <h3>Formateur</h3>
-                <h3>12/09/2021 a 13:14</h3>
+        <?php foreach ( $query2 as $row) { ?>
+            <div class="notif">
+                <h1>id projet : <?php echo $row['id_projet'] ; ?><h1>
+                <h3><?php echo $row['validated'] ; ?></h3>
             </div>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, pariatur autem? Nihil fugit veritatis illum, ducimus, porro quidem recusandae dignissimos odio maxime commodi molestiae reprehenderit officiis ipsum est totam beatae!
-            </p>
-        </div>
-        <div class="notif">
-            <h1>titre</h1>
-            <div class="format">
-                <h3>Formateur</h3>
-                <h3>12/09/2021 a 13:14</h3>
-            </div>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, pariatur autem? Nihil fugit veritatis illum, ducimus, porro quidem recusandae dignissimos odio maxime commodi molestiae reprehenderit officiis ipsum est totam beatae!
-            </p>
-        </div>
+        <?php
+            }
+         ?>
         <div class="footer">
             <p>©</p>
         </div>

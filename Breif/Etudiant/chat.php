@@ -1,5 +1,11 @@
 <?php
-include_once('conexion.php');
+include_once('connexion.php');
+// session_start();
+// $id_user=(int)$_SESSION['id_user'];
+// $query_select="SELECT `id_etudaint`FROM `etudaints`WHERE id_user=$id_user";
+// $sql1=mysqli_query($connet,$query_select);
+// $id=mysqli_fetch_assoc($sql1);
+// $id_etudiant=$id['id_etudaint'];
 if(!empty($_POST['submit'])){
 $url=$_POST['url'];
 $sql=mysqli_query ($connect,"INSERT INTO `url`( `url`) VALUES  ('$url')") ;

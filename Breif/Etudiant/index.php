@@ -1,18 +1,14 @@
 <?php
 include_once('../Database/database.php');
-if (isset($_POST['gobrief'])) {
-header('location:carte.php');
-
-}
-
-$query = "SELECT * FROM projets WHERE id_formateur = 1";
-$result = mysqli_query($connect,$query);
-
-
-
+session_start();
+$id_user=(int)$_SESSION['id_user'];
+$query = "SELECT id_formateur FROM etudaints WHERE id_user=$id_user";
+$result1 = mysqli_query($connect,$query);
+$query_formateur=mysqli_fetch_assoc($result1);
+$formateur_id = $query_formateur['id_formateur'];
+$select_projet="SELECT * FROM `projets` " ;
+$result=mysqli_query($connect,$select_projet);
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +27,6 @@ $result = mysqli_query($connect,$query);
             </div>
             <div class="para_noti">
                 <a href="notification.php"><img src="../Conception_Frontend/imag/Notification.png" alt="notifi" class="img1"></a>
-                <img src="../Conception_Frontend/imag/Parametre.png" alt="setting" class="img2">
             </div>
         </div>
         <div class="cartes">
