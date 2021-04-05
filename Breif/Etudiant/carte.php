@@ -23,7 +23,6 @@ include_once('connexion.php');
                 </div>
                 <div class="para_noti">
                     <a href="notification.php"><img src="../Conception_Frontend/imag/Notification.png" alt="notifi" class="img1"></a>
-                    <img src="../Conception_Frontend/imag/Parametre.png" alt="setting" class="img2">
                 </div>
             </div>
                 <div class="carte">

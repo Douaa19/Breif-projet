@@ -1,15 +1,14 @@
 <?php
 include_once('../Database/database.php');
-if (isset($_POST['gobrief'])) {
-header('location:carte.php');
-}
-
-$query = "SELECT * FROM projets WHERE id_formateur = ";
-$result = mysqli_query($connect,$query);
-
+session_start();
+$id_user=(int)$_SESSION['id_user'];
+$query = "SELECT id_formateur FROM etudaints WHERE id_user=$id_user";
+$result1 = mysqli_query($connect,$query);
+$query_formateur=mysqli_fetch_assoc($result1);
+$formateur_id = $query_formateur['id_formateur'];
+$select_projet="SELECT * FROM `projets` " ;
+$result=mysqli_query($connect,$select_projet);
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
