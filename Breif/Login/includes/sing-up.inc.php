@@ -22,6 +22,17 @@
                 $insert = 'INSERT INTO users(username, email, pass_word, role) VALUES ("' . $username . '" , "' . $email . '" , "' . $password . '" , "' . $role . '")';
                 $result = mysqli_query($connect, $insert);
                 if ($result) {
+
+
+                    
+// $select_query = "SELECT * FROM `users` ORDER BY `users`.`id` DESC LIMIT 1  ";
+// $result_quer = mysqli_query($connect,$select_query);
+// $fetch=mysqli_fetch_assoc($result_quer);
+
+
+
+
+
                     header('Location: ../index.php?hello_new_user');
                     // die();
                 }

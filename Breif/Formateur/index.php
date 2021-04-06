@@ -13,10 +13,12 @@
 
     if (isset($_GET['id_projet'])) {
         $id_projet = (int)$_GET['id_projet'];
-        $delete = "DELETE FROM projets WHERE id_projet='$id_projet'";
+        $delete_valid = "DELETE FROM validation WHERE id_projet=$id_projet";
+        $valid = mysqli_query($connect,$delete_valid);
+        $delete = "DELETE FROM projets WHERE id_projet=$id_projet";
         $quer = mysqli_query($connect,$delete);
         if (!$quer) {
-            echo "error";
+            echo "error" . mysqli_error($connect);
         }
     }
 
