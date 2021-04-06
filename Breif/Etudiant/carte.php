@@ -1,7 +1,7 @@
 <?php
 include_once('connexion.php');
     $id_projet = $_GET['id'];
-    $query = "SELECT * FROM projets WHERE id_projet = $id_projet AND id_formateur = 1";
+    $query = "SELECT * FROM projets WHERE id_projet = $id_projet ";
     $result = mysqli_query($connect,$query);
     $prj = mysqli_fetch_assoc($result);
 ?>
