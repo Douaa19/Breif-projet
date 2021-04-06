@@ -3,27 +3,23 @@
     include_once('../Database/database.php');
     session_start();
     $id_user = $_SESSION['id_user'];
-    $coach_query = "SELECT id_formateur FROM formateurs WHERE id_user = $id_user";
-    $coach_select = mysqli_query($connect,$coach_query);
-    $coach = mysqli_fetch_assoc($coach_select);
-    $coach_id = $coach['id_formateur'];
-    $_SESSION['coach_id'] = $coach_id;
-    $select = "SELECT * FROM projets WHERE id_formateur = $coach_id";
+    $select = "SELECT id_formateur FROM formateurs WHERE id_user = $id_user";
+    $query = mysqli_query($connect,$select);
+    $fetch = mysqli_fetch_assoc($query);
+    $id_formateur = $fetch['id_formateur'];
+    $_SESSION['coach_id'] = $id_formateur;
+    $select = "SELECT * FROM projets WHERE id_formateur = $id_formateur";
     $result = mysqli_query($connect,$select);
-
-
-
 
     if (isset($_GET['id_projet'])) {
         $id_projet = (int)$_GET['id_projet'];
-        $delete = "DELETE FROM projets WHERE id_projet='$id_projet'";
+        $delete_valid = "DELETE FROM validation WHERE id_projet=$id_projet";
+        $valid = mysqli_query($connect,$delete_valid);
+        $delete = "DELETE FROM projets WHERE id_projet=$id_projet";
         $quer = mysqli_query($connect,$delete);
         if (!$quer) {
-            echo "eror";
+            echo "error" . mysqli_error($connect);
         }
-        // else {
-        //     header("location:update.php");
-        // }
     }
 
 
