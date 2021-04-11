@@ -47,10 +47,6 @@ main .container .password {
     flex-direction: column;
 }
 
-<<<<<<< Updated upstream
-main .container form {
-    border: 2px solid;
-=======
 main .container .password label{
     margin: 1em 0 0.5em 0.5em;
 }
@@ -73,6 +69,15 @@ main .container input[type="submit"] {
 main .container input[type="submit"]:hover {
     background-color: #6E69EC;
     color: #ffffff;
->>>>>>> Stashed changes
+}
+
+main form a {
+    text-decoration: none;
+    color: #6E69EC;
+}
+
+main form a:hover {
+    text-decoration: underline;
+    color: #707070;
 }
 

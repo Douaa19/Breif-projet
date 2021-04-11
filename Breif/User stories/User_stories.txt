@@ -1,0 +1,8 @@
+User stories:
+. En tant que formateur, je veux me connecter pour accéder à ma page qui contient mes étudiants;
+. En tant que formateur, je veux choisir entre breif projet et atelier pour asségner les projet;
+. En tant que formateur, je veux m'accéder à mes notifications pour voir les solutions des m'étudiants;
+. En tant que formateur, je veux m'accéder aux solutions des m'étudiants pour les évaluer avec validé ou non validé;
+. En tant que étudiant, je veux me connecterpour voir mes notifications;
+. En tant que étudiant, je veux voir les breifs assigné par mon formateur pour les commencer;
+. En tant que étudiant, je veux envoyer mes solutions à le formateur pour l'évaluer.

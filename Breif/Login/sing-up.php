@@ -36,6 +36,7 @@
                 </select>
             </div>
             <input type="submit" name="submit" value="Sing-up">
+            <a href="index.php">Log in</a>
         </form>
     </main>
 </body>

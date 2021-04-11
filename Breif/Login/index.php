@@ -18,13 +18,9 @@
         <div class="password">
             <label id="password">Password</label>
             <input type="password" name="password" placeholder="Password">
-<<<<<<< Updated upstream
-            <input type="submit" name="login" value="Login">
-            </form>
-=======
->>>>>>> Stashed changes
         </div>
         <input type="submit" name="login" value="Login">
+        <a href="sing-up.php">Sign up</a>
         </form>
     </main>
 </body>
